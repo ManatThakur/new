@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Home</title>
+    <link rel="stylesheet" href="/styles/output.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+            height: 70px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4facfe;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2f8efc;
+        }
+
+        .success {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    
+    <h1 class="text-3xl font-bold underline">
+Add New Home
+
+  </h1>
+<form method='post' action='/form'>
+    <label>Home Name</label>
+    <input type="text" name="homeName" placeholder="Enter home name">
+
+    <label>Address</label>
+    <textarea name="address" placeholder="Enter address"></textarea>
+
+    <label>Price ($)</label>
+    <input type="number" name="price" placeholder="Enter price">
+
+    <label>Number of Rooms</label>
+    <input type="number" name="rooms" placeholder="Enter rooms">
+
+    <button onclick="addHome()">Add Home</button>
+    
+</form>
+    <div class="success" id="successMessage"></div>
+</div>
+
+<script>
+    function addHome() {
+        const homeName = document.getElementById("homeName").value;
+        const address = document.getElementById("address").value;
+        const price = document.getElementById("price").value;
+        const rooms = document.getElementById("rooms").value;
+
+        if (!homeName || !address || !price || !rooms) {
+            alert("Please fill all fields!");
+            return;
+        }
+
+        const home = {
+            name: homeName,
+            address: address,
+            price: price,
+            rooms: rooms
+        };
+
+        let homes = JSON.parse(localStorage.getItem("homes")) || [];
+        homes.push(home);
+        localStorage.setItem("homes", JSON.stringify(homes));
+
+        document.getElementById("successMessage").innerText =
+            "Home added successfully 🏠";
+
+        document.getElementById("homeName").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("rooms").value = "";
+    }
+</script>
+
+
+</body>
+</html>
