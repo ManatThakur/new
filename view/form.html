@@ -87,20 +87,25 @@ Add New Home
     <label>Number of Rooms</label>
     <input type="number" name="rooms" placeholder="Enter rooms">
 
+     <label>image</label>
+    <input type="text" name="image" placeholder="/images/home1.jpg">
+
     <button onclick="addHome()">Add Home</button>
     
 </form>
+<br>
+<a href="/">Go to Home Page</a>
     <div class="success" id="successMessage"></div>
 </div>
-
 <script>
     function addHome() {
         const homeName = document.getElementById("homeName").value;
         const address = document.getElementById("address").value;
         const price = document.getElementById("price").value;
         const rooms = document.getElementById("rooms").value;
+        const image = document.getElementById("image").value;
 
-        if (!homeName || !address || !price || !rooms) {
+        if (!homeName || !address || !price || !rooms || !image) {
             alert("Please fill all fields!");
             return;
         }
@@ -109,7 +114,8 @@ Add New Home
             name: homeName,
             address: address,
             price: price,
-            rooms: rooms
+            rooms: rooms,
+            image: image
         };
 
         let homes = JSON.parse(localStorage.getItem("homes")) || [];
@@ -123,8 +129,11 @@ Add New Home
         document.getElementById("address").value = "";
         document.getElementById("price").value = "";
         document.getElementById("rooms").value = "";
+        document.getElementById("image").value = "";
     }
+    <a href="/">Go to Home Page</a>
 </script>
+
 
 
 </body>
