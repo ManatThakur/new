@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/output.css">
+  <style>
+    #firstpage {
+      background-image: url('https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=600&fit=crop');
+      background-size: fill;
+      background-position: center;
+      
+    }
+  </style>
+</head>
+<body>
+ 
+
+ 
+<% if (homes.length === 0) { %>
+  <h2 class="text-center text-xl font-semibold mt-6 text-gray-600">
+    No homes added yet
+  </h2>
+<% } else { %>
+
+  <div class="px-2 mt-3 flex flex-col gap-3">
+    
+    <% homes.forEach(home => { %>
+
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 hover:-translate-y-2">
+
+        <!-- Optional Image -->
+       
+
+        <div class="p-5">
+          
+          
+         <img src="<%= home.image %>" alt="Home Image" class="w-full h-100 mb-2 rounded-lg">
+         
+          <h2 class="text-lg font-semibold text-gray-800">
+            <%= home.homeName %>
+          </h2>
+
+          <p class="text-sm text-gray-500 mt-2">
+            📍 <%= home.address %>
+          </p>
+
+          <p class="text-sm text-gray-500">
+            🛏 Rooms: <%= home.rooms %>
+          </p>
+        
+          <div class="flex justify-between items-center mt-4">
+            <span class="text-xl font-bold text-blue-600">
+              ₹<%= home.price %>
+              <span class="text-sm font-normal text-gray-500">/night</span>
+            </span>
+            
+            <button class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold px-6 py-4 m-6 rounded-lg transition duration-300" onclick="window.location.href='/home/<%= home.id %>'">
+  View
+</button>
+    
+          
+          </div>
+          
+
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </div>
+
+<% } %>
+  <!-- Categories -->
+  
+</body>
+</html>

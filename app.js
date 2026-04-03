@@ -6,12 +6,15 @@ const bodyParser = require('body-parser');
 const rootdir=require('./util/path');
 // Create app
 const app = express();
+app.set('view engine','ejs');
+app.set('views','view');
 app.use(bodyParser.urlencoded({ extended: true }));
 const server = require('http').createServer(app);
+
 // Home route
 app.use(express.static(path.join(rootdir,"public")));
 const homeRouter=require('./router/homerouter');
-const formRouter=require('./router/formRouter');
+const {router: formRouter}=require('./router/formRouter');
 const buyRouter=require('./router/buyRouter');
 app.use(homeRouter);
 app.use(formRouter);
