@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Home</title>
+    <title><%= editing ? 'Edit Your Home' : 'Add New Home' %></title>
     <link rel="stylesheet" href="/styles/output.css">
     <style>
         body {
@@ -71,26 +71,27 @@
 <div class="form-container">
     
     <h1 class="text-3xl font-bold underline">
-Add New Home
-
-  </h1>
-<form method='post' action='/form'>
+      <%= editing ? 'Edit Home' : 'Add New Home' %>
+    </h1>
+<form method='post' action="/form">
+    <input type="hidden" name="id" value="<%= editing ? home.id : '' %>">
+1766
     <label>Home Name</label>
-    <input type="text" name="homeName" placeholder="Enter home name">
+    <input id="homeName" type="text" name="homeName" value="<%= editing ? home.homeName : '' %>" placeholder="Enter home name">
 
     <label>Address</label>
-    <textarea name="address" placeholder="Enter address"></textarea>
+    <textarea id="address" name="address" placeholder="Enter address"><%= editing ? home.address : '' %></textarea>
 
     <label>Price ($)</label>
-    <input type="number" name="price" placeholder="Enter price">
+    <input id="price" type="number" name="price" value="<%= editing ? home.price : '' %>" placeholder="Enter price">
 
     <label>Number of Rooms</label>
-    <input type="number" name="rooms" placeholder="Enter rooms">
+    <input id="rooms" type="number" name="rooms" value="<%= editing ? home.rooms : '' %>" placeholder="Enter rooms">
 
-     <label>image</label>
-    <input type="text" name="image" placeholder="/images/home1.jpg">
+    <label>Image</label>
+    <input id="image" type="text" name="image" value="<%= editing ? home.image : '' %>" placeholder="/images/home1.jpg">
 
-    <button onclick="addHome()">Add Home</button>
+    <button type="submit">Save Home</button>
     
 </form>
 <br>
@@ -131,7 +132,7 @@ Add New Home
         document.getElementById("rooms").value = "";
         document.getElementById("image").value = "";
     }
-    <a href="/">Go to Home Page</a>
+
 </script>
 
 

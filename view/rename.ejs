@@ -23,7 +23,7 @@
       </section>
 
       <div class="flex flex-wrap items-center justify-between gap-4 px-10 py-3 bg-white min-h-[65px]">
-        <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo" class="w-36" />
+        <a href="javascript:void(0)"><img src="https://www.rentmanager.com/wp-content/uploads/2021/01/visitt-logo-web.png" alt="logo" class="w-36" />
         </a>
 
         <div id="collapseMenu"
@@ -58,11 +58,11 @@
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='/buy' onclick="window.location.href='/buy'; return false;"
               class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Buy</a>
             </li>
-            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
-              class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">About</a>
+            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='/favourites' onclick="window.location.href='/favourites'; return false;"
+              class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Favourites</a>
             </li>
-            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
-              class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Contact</a>
+            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='/hosthomes' onclick="window.location.href='/hosthomes'; return false;"
+              class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Host Homes</a>
             </li>
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
               class="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Source</a>
@@ -117,6 +117,8 @@
         <div class="p-5">
           
          <img src="<%= home.image %>" alt="Home Image" class="w-full h-100 mb-2 rounded-lg">
+         
+          <h2 class="text-lg font-semibold text-gray-800">
           <h2 class="text-lg font-semibold text-gray-800">
             <%= home.homeName %>
           </h2>
@@ -134,9 +136,14 @@
               ₹<%= home.price %>
               <span class="text-sm font-normal text-gray-500">/night</span>
             </span>
-
+            
+            <button class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold px-6 py-4 m-6 rounded-lg transition duration-300" onclick="window.location.href='/home/<%= home.id %>'">
+  View
+</button>
+    
           
           </div>
+           <%- include('../partials/add-to-fav', { home: home }) %>
         </div>
 
       </div>
@@ -178,8 +185,13 @@
         <div class="flex justify-between items-center mt-3">
           <span class="font-bold text-lg">₹3,500<span class="text-sm font-normal">/night</span></span>
           <span class="text-yellow-500 text-sm">⭐ 4.8</span>
+          
+
         </div>
+          
+
       </div>
+          
     </div>
 
     <!-- Card -->
