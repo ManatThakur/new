@@ -73,9 +73,8 @@
     <h1 class="text-3xl font-bold underline">
       <%= editing ? 'Edit Home' : 'Add New Home' %>
     </h1>
-<form method='post' action="/form">
+<form method='post' action="<%= editing ? '/edit-home' : '/form' %>">
     <input type="hidden" name="id" value="<%= editing ? home.id : '' %>">
-1766
     <label>Home Name</label>
     <input id="homeName" type="text" name="homeName" value="<%= editing ? home.homeName : '' %>" placeholder="Enter home name">
 
@@ -91,7 +90,7 @@
     <label>Image</label>
     <input id="image" type="text" name="image" value="<%= editing ? home.image : '' %>" placeholder="/images/home1.jpg">
 
-    <button type="submit">Save Home</button>
+    <button type="submit"><%= editing ?  'Update Home': 'Save home' %></button>
     
 </form>
 <br>

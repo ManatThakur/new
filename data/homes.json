@@ -4,16 +4,8 @@
     "homeName": "Cozy Beautiful Rooms",
     "address": "Near church, Himachal Pradesh Distt. Shimla",
     "price": "4000",
-    "rooms": "1",
+    "rooms": "4",
     "image": "/images/image4.png"
-  },
-  {
-    "id": "1772557703164",
-    "homeName": "Blue Themes Rooms",
-    "address": "Mathura, Near govind temple Uttar Pradeh",
-    "price": "6000",
-    "rooms": "2",
-    "image": "/images/image3.png"
   },
   {
     "id": "1772557794957",
@@ -48,20 +40,12 @@
     "image": "/images/image8.png"
   },
   {
-    "id": "1772691604483",
-    "homeName": "Mehak's Palace",
-    "address": "#11 hoshiarpur",
-    "price": "20000",
-    "rooms": "5",
-    "image": "/images/image8.png"
-  },
-  {
     "id": "1773074897488",
-    "homeName": "uuuuuuuuuuuuuuuuuu",
-    "address": "",
-    "price": "",
-    "rooms": "",
-    "image": ""
+    "homeName": "Shivansh Hotel",
+    "address": "Masoorie , near S.D PUBLIC SCHOOL",
+    "price": "5000",
+    "rooms": "1",
+    "image": "/images/image8.png"
   },
   {
     "id": "1773423616032",

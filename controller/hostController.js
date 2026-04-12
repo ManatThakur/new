@@ -48,6 +48,3 @@ exports.geteditForm = (req, res, next) => {
     res.render('form', { home: home, editing: editing, title: 'Edit Home' });
   });
 };
-exports.posteditForm = (req, res, next) => {
-  
-}

@@ -9,5 +9,6 @@ formRouter.use(bodyParser.urlencoded({ extended: true }));
 formRouter.get("/form",formControl.getaddForm);
 formRouter.post("/form",formControl.postForm);
 formRouter.get("/edit-home/:id", hostController.geteditForm);
-formRouter.post("/edit-home", hostController.posteditForm);
+formRouter.post("/edit-home", formControl.posteditForm);
+formRouter.post("/delete-home", formControl.postdeleteHome);
 exports.router=formRouter;
