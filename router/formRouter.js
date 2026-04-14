@@ -4,6 +4,7 @@ const hostController = require('../controller/hostController');
 const path = require('path');
 const rootdir=require('../util/path');
 const formRouter=express.Router();
+
 const bodyParser = require('body-parser');
 formRouter.use(bodyParser.urlencoded({ extended: true }));
 formRouter.get("/form",formControl.getaddForm);
